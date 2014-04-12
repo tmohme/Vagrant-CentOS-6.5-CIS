@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<hudson.plugins.gradle.Gradle_-DescriptorImpl>
+  <helpRedirect/>
+  <installations>
+    <hudson.plugins.gradle.GradleInstallation>
+      <name>1.8</name>
+      <home>/usr/bin/gradle</home>
+      <properties/>
+      <gradleHome>/usr/bin/gradle</gradleHome>
+    </hudson.plugins.gradle.GradleInstallation>
+  </installations>
+</hudson.plugins.gradle.Gradle_-DescriptorImpl>
