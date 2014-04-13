@@ -1,6 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<hudson.plugins.gradle.Gradle_-DescriptorImpl>
-  <helpRedirect/>
+<hudson.plugins.gradle.Gradle_-DescriptorImpl plugin="gradle@1.23">
   <installations>
     <hudson.plugins.gradle.GradleInstallation>
       <name>1.8</name>

@@ -2,18 +2,37 @@
 <cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="69">
   <server artifactsdir="artifacts" commandRepositoryLocation="default" serverId="ff25bdab-18ba-43ed-b820-f4adfdf2ca60" />
   <pipelines group="defaultGroup">
-    <pipeline name="HelloWorldGradle" isLocked="false">
+    <pipeline name="todo">
       <materials>
-        <git url="/HelloWorldGradle" />
+        <git url="https://github.com/bmuschko/todo.git" />
       </materials>
-      <stage name="defaultStage">
+      <stage name="compileUnitTest">
         <jobs>
-          <job name="build">
+          <job name="compileUnitTest">
             <tasks>
-              <exec command="./gradlew">
-                <arg>build</arg>
+              <exec command="gradlew">
+                <arg>clean</arg>
+                <arg>test</arg>
               </exec>
             </tasks>
+            <artifacts>
+              <test src="*/build/test-results/unit/*.xml" />
+            </artifacts>
+          </job>
+        </jobs>
+      </stage>
+      <stage name="integrationTest">
+        <jobs>
+          <job name="integrationTest">
+            <tasks>
+              <exec command="gradlew">
+                <arg>integrationTest</arg>
+              </exec>
+            </tasks>
+            <artifacts>
+              <test src="*/build/test-results/integration/*.xml" dest="integrationTest" />
+              <test src="*/build/reports/tests" dest="reports" />
+            </artifacts>
           </job>
         </jobs>
       </stage>

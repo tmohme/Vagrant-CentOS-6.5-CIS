@@ -1,19 +1,22 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <hudson>
-  <disabledAdministrativeMonitors/>
-  <version>1.480.3</version>
+  <disabledAdministrativeMonitors>
+    <string>jenkins.diagnostics.SecurityIsOffMonitor</string>
+  </disabledAdministrativeMonitors>
+  <version>1.558</version>
   <numExecutors>2</numExecutors>
   <mode>NORMAL</mode>
   <useSecurity>true</useSecurity>
   <authorizationStrategy class="hudson.security.AuthorizationStrategy$Unsecured"/>
   <securityRealm class="hudson.security.SecurityRealm$None"/>
+  <disableRememberMe>false</disableRememberMe>
   <projectNamingStrategy class="jenkins.model.ProjectNamingStrategy$DefaultProjectNamingStrategy"/>
   <workspaceDir>${ITEM_ROOTDIR}/workspace</workspaceDir>
   <buildsDir>${ITEM_ROOTDIR}/builds</buildsDir>
   <jdks>
     <jdk>
       <name>openjdk-1.7.0</name>
-      <home>/usr/lib/jvm/java-1.7.0-openjdk-i386</home>
+      <home>/usr/lib/jvm/java-1.7.0</home>
       <properties/>
     </jdk>
   </jdks>
@@ -31,21 +34,23 @@
       <filterQueue>false</filterQueue>
       <properties class="hudson.model.View$PropertyList"/>
     </hudson.model.AllView>
-    <au.com.centrumsystems.hudson.plugin.buildpipeline.BuildPipelineView>
+    <au.com.centrumsystems.hudson.plugin.buildpipeline.BuildPipelineView plugin="build-pipeline-plugin@1.4.2">
       <owner class="hudson" reference="../../.."/>
-      <name>HelloWorld-Pipeline</name>
+      <name>todo</name>
       <filterExecutors>false</filterExecutors>
       <filterQueue>false</filterQueue>
       <properties class="hudson.model.View$PropertyList"/>
-      <selectedJob>HelloWorld</selectedJob>
-      <noOfDisplayedBuilds>3</noOfDisplayedBuilds>
+      <gridBuilder class="au.com.centrumsystems.hudson.plugin.buildpipeline.DownstreamProjectGridBuilder">
+        <firstJob>todo-initial</firstJob>
+      </gridBuilder>
+      <noOfDisplayedBuilds>1</noOfDisplayedBuilds>
       <buildViewTitle></buildViewTitle>
-      <triggerOnlyLatestJob>true</triggerOnlyLatestJob>
+      <triggerOnlyLatestJob>false</triggerOnlyLatestJob>
       <alwaysAllowManualTrigger>false</alwaysAllowManualTrigger>
-      <showPipelineParameters>true</showPipelineParameters>
-      <refreshFrequency>3</refreshFrequency>
-      <showPipelineDefinitionHeader>true</showPipelineDefinitionHeader>
-      <displayProgressBar>false</displayProgressBar>
+      <showPipelineParameters>false</showPipelineParameters>
+      <showPipelineParametersInHeaders>false</showPipelineParametersInHeaders>
+      <refreshFrequency>0</refreshFrequency>
+      <showPipelineDefinitionHeader>false</showPipelineDefinitionHeader>
     </au.com.centrumsystems.hudson.plugin.buildpipeline.BuildPipelineView>
   </views>
   <primaryView>All</primaryView>

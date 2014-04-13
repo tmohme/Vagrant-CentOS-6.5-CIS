@@ -9,13 +9,24 @@ class go-server {
   service {'go-server':
     ensure  => running,
     enable  => true,
-    require => Package['go-server'],
+    require => [Package['java-1.7', 'go-server'],
+                File['/etc/go', '/etc/default/go-server'],
+                ],
   }
   
   user {'go':
     ensure  => present,
     home    => '/var/go',
     require => Package['go-server'],
+  }
+
+  file {'/etc/default/go-server':
+    ensure  => file,
+    source  => 'puppet:///modules/go-server/etc/default/go-server',
+    owner   => 'go',
+    group   => 'go',
+    require => User['go'],
+    notify  => Service['go-server'],
   }
 
   file {'/etc/go':
