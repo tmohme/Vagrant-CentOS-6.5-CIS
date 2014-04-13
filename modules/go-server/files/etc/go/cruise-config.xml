@@ -38,8 +38,5 @@
       </stage>
     </pipeline>
   </pipelines>
-  <agents>
-    <agent hostname="localhost.localdomain" ipaddress="10.0.2.15" uuid="e95c9c0e-6843-4e91-85d5-826880ce222d" />
-  </agents>
 </cruise>
 
